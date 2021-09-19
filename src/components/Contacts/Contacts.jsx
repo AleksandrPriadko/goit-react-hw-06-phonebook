@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import FindContacts from "./FindContacts";
 import ContactsList from "./ContactsList";
 
-export class Contacts extends Component {
+class Contacts extends Component {
   render() {
     const { contacts, filter, onChange, deleteContact } = this.props;
 

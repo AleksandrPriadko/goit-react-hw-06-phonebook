@@ -1,7 +1,9 @@
 import { Component } from "react";
+import { connect } from "react-redux";
 import styles from "./Style.module.scss";
+import { deleteContact } from "../../redux/app-actions";
 
-export class ContactsList extends Component {
+class ContactsList extends Component {
   render() {
     const { contacts, deleteContact } = this.props;
 
@@ -26,4 +28,12 @@ export class ContactsList extends Component {
   }
 }
 
-export default ContactsList;
+const mapStateToProps = (state) => ({
+  contacts: state.contacts.items,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  deleteContact: (id) => dispatch(deleteContact(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsList);

@@ -1,7 +1,7 @@
 import { Component } from "react";
 //import { v4 as uuidv4 } from "uuid";
 import AddContactForm from "./components/PhoneBookForm";
-//import Contacts from "./components/Contacts";
+import Contacts from "./components/Contacts";
 
 export class App extends Component {
   // state = {
@@ -44,19 +44,19 @@ export class App extends Component {
   //   }
   // };
 
-  changeFilter = (event) => {
-    const { value } = event.target;
-    console.log(event);
-    this.setState({ filter: value });
-  };
+  // changeFilter = (event) => {
+  //   const { value } = event.target;
+  //   console.log(event);
+  //   this.setState({ filter: value });
+  // };
 
-  deleteContact = (contactId) => {
-    this.setState((prevState) => ({
-      contacts: prevState.contacts.filter(
-        (contact) => contact.id !== contactId
-      ),
-    }));
-  };
+  // deleteContact = (contactId) => {
+  //   this.setState((prevState) => ({
+  //     contacts: prevState.contacts.filter(
+  //       (contact) => contact.id !== contactId
+  //     ),
+  //   }));
+  // };
 
   render() {
     //const { contacts, filter } = this.state;
@@ -72,12 +72,12 @@ export class App extends Component {
         <h1>Phonebook</h1>
         <div className="container">
           <AddContactForm />
-          {/* <Contacts
-            contacts={visebleContacts}
-            filter={filter}
-            onChange={this.changeFilter}
-            deleteContact={this.deleteContact}
-          /> */}
+          <Contacts
+          //contacts={visebleContacts}
+          //filter={filter}
+          //onChange={this.changeFilter}
+          //deleteContact={this.deleteContact}
+          />
         </div>
       </>
     );
