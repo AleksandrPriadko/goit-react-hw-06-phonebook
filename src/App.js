@@ -1,13 +1,13 @@
 import { Component } from "react";
-import { v4 as uuidv4 } from "uuid";
+//import { v4 as uuidv4 } from "uuid";
 import AddContactForm from "./components/PhoneBookForm";
-import Contacts from "./components/Contacts";
+//import Contacts from "./components/Contacts";
 
 export class App extends Component {
-  state = {
-    contacts: [],
-    filter: "",
-  };
+  // state = {
+  //   contacts: [],
+  //   filter: "",
+  // };
 
   componentDidMount() {
     const contacts = localStorage.getItem("contacts");
@@ -27,22 +27,22 @@ export class App extends Component {
     localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
   }
 
-  addNewContact = (data) => {
-    const { name, number } = data;
-    const { contacts } = this.state;
-    const newContact = {
-      id: uuidv4(),
-      name: name,
-      number: number,
-    };
-    if (contacts.some((contact) => contact.name === name)) {
-      alert(`${name} is already in contacts!`);
-    } else {
-      this.setState((prevState) => ({
-        contacts: [...prevState.contacts, newContact],
-      }));
-    }
-  };
+  // addNewContact = (data) => {
+  //   const { name, number } = data;
+  //   const { contacts } = this.state;
+  //   const newContact = {
+  //     id: uuidv4(),
+  //     name: name,
+  //     number: number,
+  //   };
+  //   if (contacts.some((contact) => contact.name === name)) {
+  //     alert(`${name} is already in contacts!`);
+  //   } else {
+  //     this.setState((prevState) => ({
+  //       contacts: [...prevState.contacts, newContact],
+  //     }));
+  //   }
+  // };
 
   changeFilter = (event) => {
     const { value } = event.target;
@@ -59,25 +59,25 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    //const { contacts, filter } = this.state;
 
-    const visebleContacts = contacts.filter(
-      ({ name, number }) =>
-        name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
-        number.includes(filter)
-    );
+    // const visebleContacts = contacts.filter(
+    //   ({ name, number }) =>
+    //     name.toLocaleLowerCase().includes(filter.toLocaleLowerCase()) ||
+    //     number.includes(filter)
+    // );
 
     return (
       <>
         <h1>Phonebook</h1>
         <div className="container">
-          <AddContactForm onSubmit={this.addNewContact} />
-          <Contacts
+          <AddContactForm />
+          {/* <Contacts
             contacts={visebleContacts}
             filter={filter}
             onChange={this.changeFilter}
             deleteContact={this.deleteContact}
-          />
+          /> */}
         </div>
       </>
     );
