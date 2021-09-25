@@ -9,23 +9,23 @@ export class App extends Component {
   //   filter: "",
   // };
 
-  componentDidMount() {
-    const contacts = localStorage.getItem("contacts");
-    const contactsParsed = JSON.parse(contacts);
+  // componentDidMount() {
+  //   const contacts = localStorage.getItem("contacts");
+  //   const contactsParsed = JSON.parse(contacts);
 
-    if (contactsParsed) {
-      this.setState({ contacts: contactsParsed });
-    }
-  }
+  //   if (contactsParsed) {
+  //     this.setState({ contacts: contactsParsed });
+  //   }
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (!this.state.contacts.length) {
-      localStorage.removeItem("contacts");
-      return;
-    }
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (!this.state.contacts.length) {
+  //     localStorage.removeItem("contacts");
+  //     return;
+  //   }
 
-    localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
-  }
+  //   localStorage.setItem("contacts", JSON.stringify(this.state.contacts));
+  // }
 
   // addNewContact = (data) => {
   //   const { name, number } = data;
