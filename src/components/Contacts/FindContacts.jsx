@@ -24,23 +24,8 @@ class FindContacts extends Component {
   }
 }
 
-const getVisebleContacts = (allItems, filter) => {
-  const normalizedFilter = filter.toLocaleLowerCase();
-  return allItems.filter(
-    ({ name, number }) =>
-      name.toLocaleLowerCase().includes(normalizedFilter) ||
-      number.includes(filter)
-  );
-};
-
-const mapStateToProps = (state) => {
-  const { items, filter } = state.contacts;
-  const visibleItems = getVisebleContacts(items, filter);
-  return { contacts: visibleItems };
-};
-
 const mapDispatchToProps = (dispatch) => ({
   handleFilter: (event) => dispatch(changeFilter(event.target.value)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FindContacts);
+export default connect(null, mapDispatchToProps)(FindContacts);

@@ -28,9 +28,20 @@ class ContactsList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  contacts: state.contacts.items,
-});
+const getVisebleContacts = (allItems, filter) => {
+  const normalizedFilter = filter.toLocaleLowerCase();
+  return allItems.filter(
+    ({ name, number }) =>
+      name.toLocaleLowerCase().includes(normalizedFilter) ||
+      number.includes(filter)
+  );
+};
+
+const mapStateToProps = (state) => {
+  const { items, filter } = state.contacts;
+  const visibleItems = getVisebleContacts(items, filter);
+  return { contacts: visibleItems };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   deleteContact: (id) => dispatch(deleteContact(id)),
